@@ -2,27 +2,27 @@ package org.boardgame;
 
 public class Board {
 
-    private int row;
-    private int column;
+    private int rows;
+    private int columns;
 
     private Piece[][] pieces;
 
-    public Board(int row, int column) {
-        if(row < 1 || column < 1){
-            throw new BoardException("Error creating board: there must be at least 1 row and 1 column");
+    public Board(int rows, int columns) {
+        if(rows < 1 || columns < 1){
+            throw new BoardException("Error creating board: there must be at least 1 rows and 1 columns");
         }
-        this.row = row;
-        this.column = column;
-        pieces = new Piece[row][column];
+        this.rows = rows;
+        this.columns = columns;
+        pieces = new Piece[rows][columns];
     }
 
-    public int getRow() {
-        return row;
+    public int getRows() {
+        return rows;
     }
 
 
-    public int getColumn() {
-        return column;
+    public int getColumns() {
+        return columns;
     }
 
    public Piece piece(int row, int column){
@@ -62,7 +62,7 @@ public class Board {
     }
 
    public boolean positionExists(int row, int column){
-     return row >=0 && row < this.row && column >= 0 && column < this.column;
+     return row >=0 && row < rows && column >= 0 && column < columns;
    }
    public boolean positionExists(Position position) {
         return positionExists(position.getRow(),position.getColumn());
